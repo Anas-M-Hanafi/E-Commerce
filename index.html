@@ -1,0 +1,90 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExoStore – Home</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+</head>
+<body>
+  <!-- start navbar -->
+  <nav class="navbar">
+    <div class="navbar-container container">
+      <a href="index.html" class="logo">ExoStore</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active-link">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li>
+  <a href="cart.html" class="cart-link">
+    Cart
+    <span id="cart-count" class="cart-count">0</span>
+  </a>
+</li>
+
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+      <div class="search-container">
+        <i class="fa fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search products..."
+          aria-label="Search"
+        />
+      </div>
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  <!-- end navbar -->
+
+  <!-- start hero -->
+  <section class="hero">
+    <div class="hero-content container">
+      <div class="promo-section">
+        <p class="promo-collection">LIFESTYLE COLLECTION</p>
+        <h2 class="promo-sale">
+          MEN SALE UP TO <span class="promo-discount">30% OFF</span>
+        </h2>
+        <p class="promo-shipping">
+          GET FREE SHIPPING on orders over $99.00
+        </p>
+      </div>
+      <!-- <p class="hero-welcome">Welcome to</p>
+      <h1 class="hero-title">ExoStore</h1>
+      <p class="hero-subtitle">
+        Your one-stop shop for all things exoplanets! -->
+      </p>
+      <a href="products.html" class="btn-primary">Explore Products</a>
+    </div>
+  </section>
+  <!-- end hero -->
+
+  <script src="tabs.js" defer></script>
+  <script src="product.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+</body>
+</html>

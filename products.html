@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExoStore | Products</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- start navbar -->
+  <nav class="navbar">
+    <div class="navbar-container container">
+      <a href="index.html" class="logo">ExoStore</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active-link">Products</a></li>
+        <li>
+          <a href="cart.html" class="cart-link">
+            Cart
+            <span id="cart-count" class="cart-count">0</span>
+          </a>
+        </li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+      <div class="search-container">
+        <i class="fa fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search products..."
+          aria-label="Search"
+        />
+      </div>
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  <!-- end navbar -->
+
+  <!-- start products section -->
+  <section class="products-section">
+    <div class="container">
+      <h1 class="products-title">Our Products</h1>
+      <hr class="products-separator" />
+      <div class="products-grid">
+
+        <!-- Product Card 1 -->
+        <div class="product-card" data-id="1">
+          <div class="product-image">
+            <img src="images/product-1.jpg" alt="Classic Zipper Leather Wallet" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Baellerry Men's Wallete</h2>
+            <p class="product-price"><del>$44.00</del> $39.00</p>
+            <button class="btn-add-cart" data-id="1">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card" data-id="2">
+          <div class="product-image">
+            <img src="images/product-2.jpg" alt="Apple Watch Series 8" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Apple Watch Series 8</h2>
+            <p class="product-price"><del>$360.00</del> $349.00</p>
+            <button class="btn-add-cart" data-id="2">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card" data-id="3">
+          <div class="product-image">
+            <img src="images/product-3-background.jpg" alt="Lunar Sport Cap" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Baseball Cap For Unisex</h2>
+            <p class="product-price"><del>$29.00</del> $24.00</p>
+            <button class="btn-add-cart" data-id="3">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card" data-id="4">
+          <div class="product-image">
+            <img src="images/product-4.jpg" alt="Cosmic Voyager Backpack" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Cosmic Voyager Backpack</h2>
+            <p class="product-price"><del>$89.00</del> $69.00</p>
+            <button class="btn-add-cart" data-id="4">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="product-card" data-id="5">
+          <div class="product-image">
+            <img src="images/product-5.jpg" alt="Nike mens Nike Downshifter 13" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Nike mens</h2>
+            <p class="product-price"><del>$99.00</del> $79.00</p>
+            <button class="btn-add-cart" data-id="5">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 6 -->
+        <div class="product-card" data-id="6">
+          <div class="product-image">
+            <img src="images/product-6.jpg" alt="SAMSUNG 32-Inch Class QLED 4K Q60C Series" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">SAMSUNG 32-Inch Class QLED 4K Q60C Series</h2>
+            <p class="product-price"><del>$470.00</del> $459.00</p>
+            <button class="btn-add-cart" data-id="6">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 7 -->
+        <div class="product-card" data-id="7">
+          <div class="product-image">
+            <img src="images/product-7.jpg" alt="Samsung 22-Inch IPS Gaming Monitor" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Samsung 22-Inch IPS Gaming Monitor</h2>
+            <p class="product-price"><del>$99.99</del> $84.00</p>
+            <button class="btn-add-cart" data-id="7">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 8 -->
+        <div class="product-card" data-id="8">
+          <div class="product-image">
+            <img src="images/product-8.jpg" alt="PlayStation 5 Console (PS5)" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">PlayStation 5 Console (PS5)</h2>
+            <p class="product-price"><del>$499.99</del> $495.00</p>
+            <button class="btn-add-cart" data-id="8">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 9 -->
+        <div class="product-card" data-id="9">
+          <div class="product-image">
+            <img src="images/product-9.webp" alt="PlayStation DualSense® Wireless Controller - White" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">PlayStation DualSense® Wireless Controller - White</h2>
+            <p class="product-price"><del>$73.00</del> $65.00</p>
+            <button class="btn-add-cart" data-id="9">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 10 -->
+        <div class="product-card" data-id="10">
+          <div class="product-image">
+            <img src="images/product-10.jpg" alt="Microsoft Xbox One X 1TB Console" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Microsoft Xbox One X 1TB Console</h2>
+            <p class="product-price"><del>$290.00</del> $280.00</p>
+            <button class="btn-add-cart" data-id="10">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 11 -->
+        <div class="product-card" data-id="11">
+          <div class="product-image">
+            <img src="images/Product-11.jpg" alt="Dell Latitude 7420 14-inch Full HD" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Dell Latitude 7420 14-inch Full HD</h2>
+            <p class="product-price"><del>$439.00</del> $429.99</p>
+            <button class="btn-add-cart" data-id="11">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 12 -->
+        <div class="product-card" data-id="12">
+          <div class="product-image">
+            <img src="images/Product-12.jpg" alt="MSI Thin 15 15.6” 144Hz FHD Gaming Laptop" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">MSI Thin 15 15.6” 144Hz FHD Gaming Laptop</h2>
+            <p class="product-price"><del>$773.99</del> $768.99</p>
+            <button class="btn-add-cart" data-id="12">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Card 13 -->
+        <div class="product-card" data-id="13">
+          <div class="product-image">
+            <img src="images/Product-13.jpg" alt="MSI Katana 15 15.6” 165Hz QHD Gaming Laptop" />
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">MSI Katana 15 15.6” 165Hz QHD Gaming Laptop</h2>
+            <p class="product-price"><del>$1,399.00</del> $1,394.00</p>
+            <button class="btn-add-cart" data-id="13">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+      </div> <!-- end products-grid -->
+    </div> <!-- end container -->
+  </section>
+  <!-- end products section -->
+
+  <script src="tabs.js" defer></script>
+  <script src="product.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="cart.js" defer></script>
+</body>
+</html>

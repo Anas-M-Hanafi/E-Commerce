@@ -1,0 +1,954 @@
+/* =================================================
+   style.css
+   - تنسيقات لصفحة Home (Hero) وصفحة Products
+   - Clean Code مع تعليقات بالإنجليزية
+================================================= */
+
+/* -------------------------------------------------
+   1. COLOR VARIABLES (easy future edits)
+   ------------------------------------------------- */
+:root {
+  --primary-color: #1a237e; /* Dark blue for main elements */
+  --secondary-color: #ff7043; /* Bright orange for accents */
+  --text-color: #263238; /* Dark gray for body text */
+  --gray-color: #b0bec5; /* Light gray for borders & hovers */
+  --bg-color: #fafafa; /* Light background color */
+  --btn-text-color: #ffffff; /* White for button text */
+  --promo-collection-color: #546e7a; /* Medium gray for promo labels */
+  --promo-shipping-color: #455a64; /* Dark gray for promo subtext */
+  --promo-discount-color: #e53935; /* Bright red for discount highlights */
+}
+
+/* -------------------------------------------------
+   2. GLOBAL RESET
+   ------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+/* -------------------------------------------------
+   3. LAYOUT CONTAINER
+   ------------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* -------------------------------------------------
+   4. NAVBAR
+   ------------------------------------------------- */
+.navbar {
+  position: sticky; /* keep at top */
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--gray-color);
+  z-index: 100;
+}
+
+/* -- Navbar Flex Container -- */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+/* -- Logo -- */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* -- Nav Links -- */
+.nav-links {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; /* horizontal scroll if needed */
+  gap: 1.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.nav-links li {
+  flex: 0 0 auto;
+}
+
+.nav-links li a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active-link {
+  background-color: var(--secondary-color);
+  color: var(--btn-text-color);
+}
+
+/* -------------------------------------------------
+   5. SEARCH ICON & INPUT
+   ------------------------------------------------- */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.search-icon:hover {
+  background-color: var(--gray-color);
+}
+
+.search-input {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0); /* hidden */
+  transform-origin: right;
+  width: 200px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: #ffffff;
+}
+
+.search-input.active {
+  transform: translateY(-50%) scaleX(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* -------------------------------------------------
+   6. BURGER ICON (responsive toggle)
+   ------------------------------------------------- */
+.burger {
+  display: none; /* show on small screens */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ========================================
+   Product Details Page Styles
+   ======================================== */
+
+/* Breadcrumb navigation */
+.breadcrumb {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.breadcrumb span {
+  color: #555;
+}
+
+/* Main layout */
+.product-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+  align-items: start;
+}
+
+/* Image gallery */
+.gallery .main-image {
+  border: 1px solid var(--gray-color);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+.gallery .main-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.gallery .thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.gallery .thumbnails img {
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  object-fit: cover;
+}
+.gallery .thumbnails img.active {
+  border-color: var(--secondary-color);
+}
+
+/* Product info */
+.details .title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.details .rating {
+  margin-bottom: 0.5rem;
+  color: #ffa000;
+}
+.details .price {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.badge-discount {
+  display: inline-block;
+  background: #ffde00;
+  color: #333;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+.stock {
+  margin-bottom: 1rem;
+}
+.in-stock {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Options dropdown */
+.options label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+.options select {
+  padding: 0.4rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 4px;
+}
+
+/* Action buttons */
+.actions {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Key features list */
+.key-features {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+/* Tabs for description, specs, reviews */
+.product-info-tabs {
+  margin-bottom: 3rem;
+}
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.tab-btn.active {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Specifications table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.spec-table th,
+.spec-table td {
+  padding: 0.6rem;
+  border: 1px solid var(--gray-color);
+  text-align: left;
+}
+
+/* -------------------------------------------------
+   7. HERO SECTION (Home Page)
+   ------------------------------------------------- */
+.hero {
+  /* start hero */
+  padding-top: calc(60px + 2rem); /* leave space for navbar */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 60px);
+  background-color: var(--bg-color);
+  /* end hero */
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 1rem;
+  text-align: left;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+.promo-section {
+  margin-bottom: 2rem;
+}
+
+.promo-collection {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--promo-collection-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.promo-sale {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.promo-discount {
+  color: var(--promo-discount-color);
+  margin-left: 0.5rem;
+}
+
+.promo-shipping {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--promo-shipping-color);
+}
+
+.hero-welcome {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--btn-text-color);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.product-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 3rem auto;
+  align-items: flex-start;
+  max-width: 1200px;
+}
+
+.gallery {
+  flex: 1 1 45%;
+}
+
+.details {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.details .title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.details .price {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.details .stock {
+  margin-bottom: 1rem;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.key-features {
+  margin-top: 1rem;
+  list-style-type: disc;
+  padding-left: 1.2rem;
+}
+
+.product-info-tabs {
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+  background: #f8f8f8;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.breadcrumb a {
+  color: #0071e3;
+  text-decoration: none;
+}
+.breadcrumb .sep {
+  margin: 0 8px;
+  color: #666;
+}
+.breadcrumb .current {
+  color: #444;
+}
+
+/* Price & discount */
+.price-section {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 16px 0;
+}
+.original-price {
+  color: #888;
+  font-size: 1rem;
+}
+.discounted-price {
+  color: #e53935;
+  font-size: 1.5rem;
+}
+.badge-discount {
+  background: #ffcc00; /* Noon-style yellow */
+  color: #000;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* باقي الـCSS زي ما كان معمول */
+
+.reviews-header {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.review-item {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.avatar {
+  font-size: 1.8rem;
+  color: #888;
+}
+.stars {
+  color: #e68a00;
+  margin-bottom: 6px;
+}
+.review-title {
+  font-weight: 600;
+  margin: 4px 0;
+}
+.review-text {
+  color: #444;
+}
+
+
+/* … بقية الشيفرة الأصلية … */
+
+/* زر و نموذج المراجعات */
+#writeReviewBtn {
+  margin-bottom: 1rem;
+}
+#reviewFormContainer {
+  background: #fafafa;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+#reviewForm label {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+  font-weight: 600;
+}
+#reviewForm input,
+#reviewForm select,
+#reviewForm textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+#reviewForm button {
+  display: inline-block;
+}
+
+/* … أكمل بقية الشيفرة الأصلية … */
+
+
+/* Navbar cart badge */
+.cart-link {
+  position: relative; /* create positioning context */
+}
+
+.cart-count {
+  display: none; /* hide when zero */
+  position: absolute;
+  top: 10px; /* tweak as needed */
+  right: -17px; /* tweak as needed */
+  background: #e53935; /* red bubble */
+  color: #fff;
+  border-radius: 150px;
+  
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* -------------------------------------------------
+   8. PRODUCTS SECTION (enlarged for big images)
+   ------------------------------------------------- */
+.products-section {
+  /* start products */
+  padding: 5rem 0; /* increased vertical padding */
+  background-color: var(--bg-color);
+  /* end products */
+}
+
+.products-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* separator under title */
+.products-separator {
+  border: none;
+  height: 2px;
+  background-color: var(--secondary-color);
+  width: 80px;
+  margin: 0.5rem auto 2rem;
+  border-radius: 1px;
+}
+
+/* product grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* wider cards */
+  gap: 2rem; /* increased gap */
+}
+
+.product-card {
+  overflow: hidden; /* hide overflow for clean cards */
+  background-color: #ffffff;
+  border: 1px solid var(--gray-color);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delivery-badge {
+  transition: transform 0.3s ease; /* مدة الانتقال */
+  color: rgb(13, 177, 21);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delivery-badge:hover {
+  transform: scale(1.1); /* التكبير عند التحويم */
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-image img {
+  width: 100%;
+  height: auto; /* respect aspect ratio */
+  max-height: 300px; /* cap height if needed */
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.product-price del {
+  font-size: 0.85rem;
+  color: var(--promo-discount-color);
+  margin-right: 0.5rem;
+}
+
+.btn-add-cart {
+  background-color: var(--secondary-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-cart:hover {
+  background-color: var(--primary-color);
+}
+
+
+/* ==== Zoom on Hover === */
+.product-card img {
+  transition: transform .3s ease;
+}
+.product-card img:hover {
+  transform: scale(1.05);
+}
+
+/* ==== Swiper Gallery Styles ==== */
+.gallery-swiper,
+.gallery-swiper .swiper-wrapper,
+.gallery-swiper .swiper-slide {
+  width: 100%;
+  height: auto;
+}
+.gallery-swiper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==== Recommendations Grid ==== */
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+/* ==== Wishlist Button ==== */
+.btn-wish {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-wish:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ==== Rating Filter ==== */
+#ratingFilter {
+  margin: 1rem 0;
+  padding: .5rem;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+}
+
+/* ==== Checkout Wizard Steps ==== */
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.checkout-steps .step {
+  flex: 1;
+  text-align: center;
+  padding: .5rem;
+  border-bottom: 2px solid var(--gray);
+}
+.checkout-steps .step.active {
+  border-color: var(--accent);
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* == Responsive (لو محتاج تعيد لصقه) == */
+/* ... باقي media queries زي ما اضفنا قبل كده ... */
+
+
+
+/* ==============================================
+   Responsive Breakpoints
+   ============================================== */
+
+/* 1. Desktop أقل من 1200px */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* 2. Tablets و الشاشات المتوسطة أقل من 992px */
+@media (max-width: 992px) {
+  /* Navbar: إظهار الـ burger وإخفاء الروابط الأفقية */
+  .burger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 200;
+  }
+  .nav-links.open {
+    transform: translateX(0);
+  }
+  /* Hero: صورة أقل ارتفاعًا */
+  .hero {
+    height: 50vh;
+  }
+  /* Products grid: عمودين */
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  /* Product Details: عمود واحد */
+  .product-details {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Cart: عمود واحد بدل عمودين */
+  .cart-container {
+    flex-direction: column;
+  }
+  /* Checkout: عمود واحد */
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. الهواتف الصغيرة أقل من 768px */
+@media (max-width: 768px) {
+  /* Navbar container padding أقل */
+  .navbar-container {
+    padding: 0.5rem 1rem;
+  }
+  /* Breadcrumb أصغر */
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+  /* Hero عنوان أصغر */
+  .hero h1,
+  .promo-sale {
+    font-size: 1.8rem;
+  }
+  /* Products grid: عمود واحد */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  /* Product card image أقل ارتفاعًا */
+
+  /* Thumbnails: أصغر */
+  .thumbnails img {
+    width: 50px;
+    height: 50px;
+  }
+  /* Tabs: عمودي بدل أفقي */
+  .tab-buttons {
+    flex-direction: column;
+  }
+  .tab-buttons .tab-btn {
+    width: 100%;
+  }
+  /* Buttons أكبر لمسية */
+  .btn-add-cart,
+  .btn-primary,
+  .btn-secondary,
+  .checkout-btn,
+  .place-order {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  /* Cart item: يقلل الأعمدة */
+  .cart-item {
+    grid-template-columns: 80px auto 80px 40px;
+  }
+  /* Checkout form fields full width */
+  .checkout-form input,
+  .checkout-form select {
+    font-size: 0.95rem;
+  }
+}
+
+/* 4. الهواتف الصغيرة جدًا أقل من 576px */
+@media (max-width: 576px) {
+  /* Navbar: full-width menu */
+  .nav-links {
+    width: 75%;
+  }
+  /* Hero height أقل */
+  .hero {
+    height: 40vh;
+  }
+  /* Promo text أصغر */
+  .promo-collection {
+    font-size: 0.85rem;
+  }
+  .promo-shipping {
+    font-size: 0.85rem;
+  }
+  /* Product Details: حداود المسافات أصغر */
+  .product-details,
+  .cart-container,
+  .checkout-container {
+    padding: 1rem 0.5rem;
+  }
+  /* Inputs full-width */
+  .search-input,
+  .quantity-selector input,
+  .checkout-form input,
+  .checkout-form select {
+    width: 100%;
+  }
+  /* Footer / any other elements: تأكد أنها مرنة */
+  footer,
+  .some-footer-class {
+    text-align: center;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="products.html">Products</a>
+    <span class="sep">›</span>
+    <span class="current">Product Details</span>
+  </nav>
+
+  <section class="product-details container">
+    <div class="gallery">
+      <img id="currentImage" src="" alt="Product Image" class="main-img"/>
+      <div class="thumbnails"></div>
+    </div>
+
+    <div class="details">
+      <h1 class="title"></h1>
+
+      <!-- Price & Discount -->
+      <div class="price-section">
+        <del class="original-price"></del>
+        <strong class="discounted-price"></strong>
+        <span class="badge-discount"></span>
+      </div>
+
+      <div class="stock">
+        <span class="in-stock"></span>
+      </div>
+
+      <div class="options">
+        <label for="material">Material:</label>
+        <select id="material"></select>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary">Add to Cart</button>
+        <button class="btn-secondary">Buy Now</button>
+      </div>
+
+      <div class="features-section">
+        <h2>Key Features</h2>
+        <ul class="key-features"></ul>
+      </div>
+
+      <!-- Tabs -->
+      <div class="product-info-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="description">Description</button>
+          <button class="tab-btn" data-tab="specs">Specifications</button>
+          <button class="tab-btn" data-tab="reviews">Reviews</button>
+        </div>
+
+        <div id="description" class="tab-content active">
+          <p class="desc-text"></p>
+        </div>
+
+        <div id="specs" class="tab-content">
+          <table class="spec-table"></table>
+        </div>
+
+        <div id="reviews" class="tab-content">
+          <!-- زر و نموذج إضافة المراجعة -->
+          <button id="writeReviewBtn" class="btn-secondary">Leave a Review</button>
+          <div id="reviewFormContainer" style="display:none; margin:1rem 0;">
+            <form id="reviewForm">
+              <label for="revUser">Your Name:</label>
+              <input type="text" id="revUser" required />
+
+              <label for="revRating">Rating:</label>
+              <select id="revRating" required>
+                <option value="">Select…</option>
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="1">★☆☆☆☆</option>
+              </select>
+
+              <label for="revTitle">Title:</label>
+              <input type="text" id="revTitle" required />
+
+              <label for="revText">Review:</label>
+              <textarea id="revText" rows="4" required></textarea>
+
+              <button type="submit" class="btn-primary">Submit Review</button>
+            </form>
+          </div>
+
+          <h2 class="reviews-header">Top reviews from the United States</h2>
+          <div class="review-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="tabs.js" defer></script>
+  <script src="product.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
